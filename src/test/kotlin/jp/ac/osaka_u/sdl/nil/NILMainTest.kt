@@ -86,4 +86,22 @@ internal class NILMainTest {
         assertEquals(result.sorted(), outputFile.readText().lines().sorted())
         outputFile.delete()
     }
+
+    @Test
+    fun testJavaScript() {
+        val config =
+            parseArgs(arrayOf("-s", "./src/test/resources/examples", "-bce", "-t", "1", "-p", "1", "-l", "js"))
+        NILMain(config).run()
+
+        println(config.outputFileName)
+
+        val outputFile = File(config.outputFileName)
+        val result = listOf(
+            "examples,FizzBuzz.js,1,14,examples,FizzBuzz.js,16,31",
+            ""
+        )
+
+        assertEquals(result.sorted(), outputFile.readText().lines().sorted())
+        outputFile.delete()
+    }
 }
