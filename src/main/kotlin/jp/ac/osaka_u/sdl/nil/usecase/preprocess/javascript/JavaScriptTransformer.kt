@@ -20,6 +20,9 @@ class JavaScriptTransformer(config: NILConfig) :
         object : JavaScriptParserBaseListener() {
             override fun enterFunctionDeclaration(ctx: JavaScriptParser.FunctionDeclarationContext) =
                 action(ctx)
+
+            override fun enterMethodDefinition(ctx: JavaScriptParser.MethodDefinitionContext) =
+                action(ctx)
         }
 
     override fun Parser.extractRuleContext(): ParserRuleContext =

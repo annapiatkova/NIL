@@ -88,7 +88,7 @@ internal class NILMainTest {
     }
 
     @Test
-    fun testJavaScript() {
+    fun testsJavaScript() {
         val config =
             parseArgs(arrayOf("-s", "./src/test/resources/examples", "-bce", "-t", "1", "-p", "1", "-l", "js"))
         NILMain(config).run()
@@ -98,6 +98,8 @@ internal class NILMainTest {
         val outputFile = File(config.outputFileName)
         val result = listOf(
             "examples,FizzBuzz.js,1,14,examples,FizzBuzz.js,16,31",
+            "examples,LargeGapClones.js,4,15,examples,LargeGapClones.js,17,38",
+            "examples,LargeVarianceClones.js,3,21,examples,LargeVarianceClones.js,23,54",
             ""
         )
 
